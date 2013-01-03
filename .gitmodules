@@ -1,0 +1,3 @@
+[submodule "nebrasksjs-tweets"]
+	path = nebrasksjs-tweets
+	url = git@github.com:nicknisi/nebraskajs-tweets.git
