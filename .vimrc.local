@@ -1,0 +1,4 @@
+" run jshint on the current buffer
+nmap <leader>o :!jshint %<cr>
+" execute the current file (`node FILE`)
+nmap <leader>x :call VimuxRunCommand('supervisor ' . bufname("%"))<cr>
