@@ -1,5 +1,6 @@
 var express = require("express"),
     fs = require("fs"),
+    hbs = require('hbs'),
     lessMiddleware = require("less-middleware");
 
 var app = express();
@@ -14,12 +15,17 @@ var middleware = function (req, res, next) {
     });
 };
 
+// register frontend partials, so they can be used on the backend
+var headerTmpl = fs.readFileSync(__dirname + '/public/templates/header.hbs', 'utf-8');
+hbs.registerPartial('header', headerTmpl);
+
 app.configure(function () {
     app.set('view engine', 'hbs');
     app.use(lessMiddleware({
         src: __dirname + '/public'
     }));
     app.use(express.static(__dirname + '/public'));
+
 });
 
 app.get('/', function (req, res) {

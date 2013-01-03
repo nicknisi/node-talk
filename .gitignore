@@ -1,2 +1,3 @@
 node_modules/
 app/public/stylesheets/*.css
+npm-debug.log
